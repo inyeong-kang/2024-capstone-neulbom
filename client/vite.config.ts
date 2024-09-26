@@ -1,17 +1,6 @@
 import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react"
 import svgr from "vite-plugin-svgr"
-import { name } from "./package.json"
-
-const genBaseUrl = (mode) => {
-  if (mode !== "development") {
-    if (mode == "test") {
-      return `/${name}-test/`
-    }
-    return `/${name}/`
-  }
-  return "/"
-}
 
 export default defineConfig(({ mode }) => {
   return {
@@ -20,7 +9,7 @@ export default defineConfig(({ mode }) => {
         "@": "/src",
       },
     },
-    base: genBaseUrl(mode),
+    base: "/",
     build: {
       // cssCodeSplit: false,
       // target: "es2015",
