@@ -1,16 +1,55 @@
-<!doctype html>
-<html lang="ko">
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta
-      name="viewport"
-      content="viewport-fit=cover,width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
-    />
-    <title>늘봄, 늘 따뜻한 돌봄</title>
+    <link rel="icon" type="image/svg+xml" href="/agora-box-logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Real-time Stretching Feedback</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <!-- 비디오 스트리밍 영역 -->
+    <div id="container"></div>
+    <!-- 스트레칭 피드백 메시지 영역 -->   
+    <div id="local-user-container">
+      <div id="feedback">Stretching Feedback Here</div>
+    </div>
+    <!-- 음성 인식 토글 버튼 -->
+    <div id="chat-container"></div>
+    <!-- 채팅 메시지가 표시될 영역 -->
+    <button id="speech-toggle" class="speech-recognition-btn">대화 시작</button>
+    <button id="download-btn">대화 내역 다운로드</button>
+    <!-- 텍스트 출력 영역 -->
+    <div id="recognized-text"></div>    
+    <!-- 미디어 제어 버튼들 -->
+    <div id="local-media-controls">
+      <button id="mic-toggle" class="media-active">마이크</button>
+      <button id="video-toggle" class="media-active">비디오</button>
+      <button id="leave-channel" class="media-active">나가기</button>
+    </div>
+    <!-- 채널 참여를 위한 오버레이 -->
+    <div id="overlay" class="modal">
+      <div id="form-container">
+        <h4 id="form-header">오늘 하루를 시작해볼까요?</h4>
+        <form id="join-channel-form">
+          <div id="form-body">
+            <div class="form-group">
+              <label for="form-rpm-url">채널 ID</label>
+              <input
+                type="text"
+                id="form-rpm-url"
+                placeholder="채널 ID 를 입력해 주세요:)"
+                class="form-control"
+              />
+            </div>
+            <div id="form-footer">
+              <button type="submit" id="join-channel-btn">Join Channel</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <body>
+    <script type="module" src="/main.js"></script>
   </body>
 </html>
